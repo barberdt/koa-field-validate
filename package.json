@@ -1,0 +1,22 @@
+{
+  "name": "koa-field-validate",
+  "version": "0.0.1",
+  "description": "Parsed body field validation middleware for Koa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/barberdt/koa-field-validate.git"
+  },
+  "author": "barberdt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/barberdt/koa-field-validate/issues"
+  },
+  "homepage": "https://github.com/barberdt/koa-field-validate#readme",
+  "keywords": [
+    "koa"
+  ]
+}
