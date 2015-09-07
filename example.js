@@ -1,7 +1,7 @@
 'use strict';
 
 const bodyParser = require('koa-body');
-const fieldValidator = require('koa-field-validate');
+const fieldValidator = require('./lib');
 const koa = require('koa');
 
 const app = koa();
@@ -20,6 +20,9 @@ app.use(function *(next) {
     if (error.fields) {
       body.fields = error.fields;
     }
+
+    this.status = status;
+    this.body = body;
 
     this.app.emit('error', error, this);
   }

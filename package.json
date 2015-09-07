@@ -18,5 +18,9 @@
   "homepage": "https://github.com/barberdt/koa-field-validate#readme",
   "keywords": [
     "koa"
-  ]
+  ],
+  "devDependencies": {
+    "koa": "^1.0.0",
+    "koa-body": "^1.2.1"
+  }
 }
