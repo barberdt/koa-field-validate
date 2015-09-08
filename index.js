@@ -17,7 +17,7 @@ module.exports = function() {
    * @param {Generator} next - The next middleware in the chain to yield to.
    */
   return function *(next) {
-    const ctx = this;
+    const app = this;
 
     /**
      * Take the given field name and create and return a FieldValidator for it.
@@ -27,11 +27,11 @@ module.exports = function() {
      */
     this.validate = function(fieldName) {
       // This middleware requires that koa-body has parsed the request body.
-      if (!ctx.request.body) {
-        ctx.throw('Validate requires a parsed body.');
+      if (!app.request.body) {
+        app.throw('Validate requires a parsed body.');
       }
 
-      return new FieldValidator(fieldName, ctx);
+      return new FieldValidator(fieldName, app);
     };
 
     yield next;
