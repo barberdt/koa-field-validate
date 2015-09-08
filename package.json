@@ -1,6 +1,6 @@
 {
   "name": "koa-field-validate",
-  "version": "0.0.0-beta",
+  "version": "0.0.0",
   "description": "Parsed body field validation middleware for Koa.",
   "main": "index.js",
   "scripts": {
