@@ -6,9 +6,13 @@ const koa = require('koa');
 
 const app = koa();
 
+// Middleware depends on koa-body
 app.use(bodyParser());
+
+// Use the middleware
 app.use(fieldValidator());
 
+// Middleware for handling thrown errors.
 app.use(function *(next) {
   try {
     yield next;
@@ -28,13 +32,15 @@ app.use(function *(next) {
   }
 });
 
+// General middleware
 app.use(function *() {
+  // Perform validation on the required username field
   this.validate('username').isRequired();
 
-  if (this.fieldErrors) {
-    this.throw('Bad request.', 400, { fields: this.fieldErrors });
-  }
+  // Assert that this.fieldErrors does not exist, throwing 400 if it does
+  this.assert(!this.fieldErrors, 400, { fields: this.fieldErrors });
 
+  // If the assertion was true, we hav no errors
   this.body = 'No errors!';
 });
 
