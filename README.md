@@ -14,12 +14,13 @@ The middleware provides a `validate` function on the app context, which takes a 
 ```javascript
 app.use(function *() {
   // Perform validation on the required username field
-  this.validate('username').isRequired();
+  this.validate('username').required();
+  this.validate('email').required().notEmpty().email();
 
   // Assert that this.fieldErrors does not exist, throwing 400 if it does
   this.assert(!this.fieldErrors, 400, { fields: this.fieldErrors });
 
-  // If the assertion was true, we hav no errors
+  // If the assertion was true, we have no errors
   this.body = 'No errors!';
 });
 ```
@@ -27,8 +28,11 @@ app.use(function *() {
 ### Current Validations
 This is still a very raw middleware and is in an alpha development phase. More validations will come.
 
-- **isRequired()**
-    Ensure that the required field exists.
+- **required(message)**
+    The field must exist.
 
-- **notEmpty()**
-    Ensure that the field is not empty.
+- **notEmpty(message)**
+    The field must not be empty.
+
+- **email(message)**
+    The field must match a valid email regex.
