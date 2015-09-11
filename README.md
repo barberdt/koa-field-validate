@@ -28,4 +28,7 @@ app.use(function *() {
 This is still a very raw middleware and is in an alpha development phase. More validations will come.
 
 - **isRequired()**
-    Ensure that the required field exists and is non-empty.
+    Ensure that the required field exists.
+
+- **notEmpty()**
+    Ensure that the field is not empty.
