@@ -9,7 +9,7 @@ const FieldValidator = require('./lib/FieldValidator');
  *
  * @return {Generator} The app middleware.
  */
-module.exports = function() {
+module.exports = () => {
 
   /**
    * Generator function middleware.
@@ -25,7 +25,7 @@ module.exports = function() {
      * @param {String} fieldName - The name of the field on the request body.
      * @return {FieldValidator} The field validator class for the field.
      */
-    this.validate = function(fieldName) {
+    this.validate = (fieldName) => {
       // This middleware requires that koa-body has parsed the request body.
       if (!app.request.body) {
         app.throw('Validate requires a parsed body.');
